@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "357598154848",
+    "project_id": "melano-auth",
+    "storage_bucket": "melano-auth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357598154848:android:1b4680ba7f0ee3da5df305",
+
+        "android_client_info": {
+          "package_name": "com.example.chat_ui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357598154848-a9mmif7b6jp1l92jrlc1lk4550bp5f6h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjIIJVSIBwUun-K9fCB2jDdjWBm4-iqf4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357598154848-a9mmif7b6jp1l92jrlc1lk4550bp5f6h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

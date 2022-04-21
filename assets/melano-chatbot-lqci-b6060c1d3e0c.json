@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "melano-chatbot-lqci",
+  "private_key_id": "b6060c1d3e0c50d4c9b9abb649566eeb680c81bb",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDgQhE8Nla/crKw\niPRS9QD64+UhZLdLc0s2IhP/cnvrSvG+fBZBnbx+U1UxZ9vhwyft2nyqiavlu2IA\nNqZJxrlL00VGp4lJT83HDZqmxCIP2RGb4GdxYi7T/UnkaX3/3OpO9bQAB9pshCoh\noV2FjdJG3Rm6fla5bHE2/bNNg5p7Av4KdwhHG8f/mafDqEUYFT4LC10BkqmAtLie\n9Xdt71FcutavIaL5EWlUopRsa8XsulgmmH8mxmRz2shf6VWUtf9To1XnmIDX77ms\n9YpqQ+s6LqHOtGnlj1RweqqSuSkSZBHGjGxM/2nSJtylYkAe04lE/7VKoGafDTSf\nb93Cbh7RAgMBAAECggEAK/SXJzupXiYPoy184iO2mPaBSz3P9YB4LfiY/dlFM7XB\nU2pD/IF72DDiQmhOf14+nc7U36JTaJiFWXBcwJosaJHVAsfEz3NObKUcenJ4EK4l\n1u0xqVYqwo9jY9tPgI6e+HINYXIonFt9XJEh4RMOs6gTqmun+Pkp6bLpaZiRd2md\nRWRGPo0LnMPuZPNKw5rhrwIGl46eCPNDUqw1DBcLzI4odWiylNkuePz46SpXWV5Y\nrGkZ/54w7moJ3tWO3+bTHaT+cbEZl5/CeZm2k1X4V+wdWOwNOKIlZc2oWNjZdUmA\n52najHrImcmnVXjvXz6V5hszIobQx7pfdHyWX81LfwKBgQD2emfud2EzxrdAuDll\ndFq4H6Awtaka0hiYCpl+q9saQRQXJEtr8gwUbou9pkBWgg70lc0bSOu6msIGUHPO\nzlQvNLk1NEjfosJYRCGTryBQgCbFzwKiNVEXjK7tyowDOwZ7uIyAzXycmkyTss7t\nEHndUQtZFQab1x2Ifi+OQ3+7MwKBgQDo6+lcvK5E/NZDMch1+isd+zVVGY6g9KzD\nPhryzafsJHiKzGkaXk4oBmAj8m/xAHkbWOC0xk3X0o+AEUi2KtIxcgbkyiixRCMV\nyoRX4npzvMghaU0TPHeiGd9dWd/gWwSyw6imoFFTbf7AvT1c9Q+fPomVvYdPyY6x\nhgWr+CWd6wKBgBUsgs0rmEAYbBm1OckLa9exb9N/Z52UOuSk1HbbUKE6wf0S8x+8\n1WjT7lFGfPRxi9NbIxma9BU9wjlEpA46D2VWxCpb6X68vrFSeQf03XPM7ofDttg0\neFjrjwOCiPCmG3J5ciiGfpP9dWKi07/t0GpA0ha/BahRnInjPTadedWdAoGBAIgq\nimV9pH+ONBBaRS+7TYOcfUQ/yaMNBwapAwYY9mdVtuals3gH07cQaxn4vDpvJV24\nar0kBRP784pSEGj2xaTEXYVZLcrb44r0tsPOEfohTfpCXh21xtaMO4mOZhP6Adgk\nDC9FH+YfMsQonXv/g997puFUSIt7cKEVkbFEQ3F7AoGBAJlbM1WrL/JT71FJlt8T\nEZjkJmqx8YzGgKQCQoOa44Pv64OuvWBupP9/iX6TAZOu6J9Gs/Kd1I/gOv7IGNMP\nLSW+qDvOAjC2iMgIqj+zVjZ3QLtLGFYC995fT9s4z0YCwnXw8wUlFVa6y3WnxMwz\nZOHhPb2r/HjKtk0Tiej8U8m2\n-----END PRIVATE KEY-----\n",
+  "client_email": "melano-chatbot@melano-chatbot-lqci.iam.gserviceaccount.com",
+  "client_id": "116226914688448786943",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/melano-chatbot%40melano-chatbot-lqci.iam.gserviceaccount.com"
+}
