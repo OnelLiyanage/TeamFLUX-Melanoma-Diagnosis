@@ -19,6 +19,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
     File? selectedImage;
+    final picker = ImagePicker();
     String? message = " " ;
 
 // this is the Dialogflow API call and its commented out for the Python file @Nemsara 
@@ -31,11 +32,11 @@ class _MyHomePageState extends State<MyHomePage> {
 		setState(() {
 			messages.insert(0, {
 				"data": 0,
-				"message": aiResponse.getListMessage()[0]["text"]["text"][0].toString()
+				"message": aiResponse.getListMessage()![0]["text"]["text"][0].toString()
 			} );
 		} );
 
-        print( aiResponse.getListMessage()[0]["text"]["text"][0].toString() );	
+        print( aiResponse.getListMessage()![0]["text"]["text"][0].toString() );	
 	}
 
     final messageInsert = TextEditingController();
@@ -44,8 +45,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
     // loading the image 
     Future getImage() async {
-        final pickedImage = await ImagePicker.pickImage(source: ImageSource.gallery);
-        selectedImage = File(pickedImage.path);
+        // ignore: deprecated_member_use
+        final pickedImage = await picker.getImage(source: ImageSource.gallery);
+        selectedImage = File(pickedImage!.path);
         setState(() {});
     }
 
