@@ -120,7 +120,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
 					Container(
 						child: ListTile (
-
 							title: Container (
 								height: 35,
 								decoration:  BoxDecoration (
@@ -192,7 +191,7 @@ class _MyHomePageState extends State<MyHomePage> {
 							),
 						),
 
-						SizedBox( height: 50.0 )
+						SizedBox( height: 47.0 )
 
 					],
 				),
