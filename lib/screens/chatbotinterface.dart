@@ -9,20 +9,20 @@ import 'package:dialogflow_flutter/dialogflowFlutter.dart';
 import 'package:dialogflow_flutter/googleAuth.dart';
 import 'package:dialogflow_flutter/language.dart';
 
-class MyHomePage extends StatefulWidget {
-	// MyHomePage({  Key? key,  required this.title }) : super(key: key);
-	// final String title ;
+class Chatbotinterface extends StatefulWidget {
+  const Chatbotinterface({Key? key}) : super(key: key);
 
     @override
-    _MyHomePageState createState() => _MyHomePageState();
+    _Chatbotinterface createState() => _Chatbotinterface();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _Chatbotinterface extends State<Chatbotinterface> {
     File? selectedImage;
     final picker = ImagePicker();
     String? message = " " ;
 
-// this is the Dialogflow API call and its commented out for the Python file @Nemsara 
+//  Dialogflow API call
+// Sets the language as eng and Json key file  
     void response(query) async {
 		AuthGoogle authGoogle = await AuthGoogle(
             fileJson: "assets/melano-chatbot-lqci-b6060c1d3e0c.json"
@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
 		AIResponse aiResponse = await dialogflow.detectIntent(query);
 		setState(() {
 			messages.insert(0, {
-				"data": 0,
+				"data": 0,                  // 0 assinged to chatbot, styling is assinged accordingly
 				"message": aiResponse.getListMessage()![0]["text"]["text"][0].toString()
 			} );
 		} );
@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
     List<Map> messages = [ ];
     
 
-    // loading the image 
+    // method to load the image from gallery 
     Future getImage() async {
         // ignore: deprecated_member_use
         final pickedImage = await picker.getImage(source: ImageSource.gallery);
@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
         setState(() {});
     }
 
-    //uploading the image 
+    // API to upload the image to the ML server 
     uploadeImage() async {
         final request = http.MultipartRequest("POST", Uri.parse("https://melanoma-test.azurewebsites.net/predict"));
         final headers = { "Content-type": "multipart/form-data" };
@@ -66,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
         http.Response res = await http.Response.fromStream(response);
         final resJson = jsonDecode(res.body );
         message = resJson['prediction'];
-        print(message);
+        print(message);                                                                             // prints the value from server to the console
         double message_value =  double.parse(message!) ;
         double a = message_value*100;
         print(a);
@@ -77,24 +77,19 @@ class _MyHomePageState extends State<MyHomePage> {
 	Widget build(BuildContext context) {
 		return Scaffold(
 			appBar: AppBar(
-				title: Text (
+				title: const Text (
                     "Scan",
                     style: TextStyle (
                         color: Colors.white,
                     ),
                 ),
-                backgroundColor: Color.fromRGBO(49, 163, 139, 0.663),
+                backgroundColor: const Color.fromRGBO(49, 163, 139, 0.663),
                 elevation: 0,
             ),
 
 			body: Container ( 
 				child: Column (
 					children: <Widget> [
-
-            // ignore: prefer_const_constructors
-            // Nems edit
-            // if (selectedImage == null) Text("Choose an image to uploade") else Image.file(selectedImage!);
-            
 						Flexible(child: ListView.builder  (
 							reverse:  true,
 							itemCount: messages.length,
@@ -105,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
 						)
 						),
 
-						// SizedBox( height: 20.0 ),
+						// image picker displays the selected image and the value returned from ML server
                         selectedImage == null 
                             ? const Text("No Images Selected ")
                             : Image.file(selectedImage!) , Text (message!),
@@ -114,23 +109,24 @@ class _MyHomePageState extends State<MyHomePage> {
                             icon: const Icon(Icons.upload) 
                         ),
 
-						Divider( 
+						const Divider( 
 							height: 5.0,
 						),
 
+                    // section with gallery icon and text feild to type questions for the chat bot
 					Container(
 						child: ListTile (
 							title: Container (
 								height: 35,
-								decoration:  BoxDecoration (
+								decoration:  const BoxDecoration (
 									borderRadius: BorderRadius.all(Radius.circular(15)),
 									color: Color.fromRGBO(220, 220, 220, 1),
 								),
 
-								padding: EdgeInsets.only(left: 15),
+								padding: const EdgeInsets.only(left: 15),
 								child: TextFormField (
 									controller: messageInsert,
-									decoration: InputDecoration (
+									decoration: const InputDecoration (
 										hintText: "Ask your question here...",
 										hintStyle: TextStyle (
 											color:  Colors.black45
@@ -143,7 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
 										disabledBorder: InputBorder.none,
 									),
 
-									style: TextStyle (
+									style: const TextStyle (
 										fontSize: 15,
 										color: Colors.black
 									),
@@ -154,8 +150,8 @@ class _MyHomePageState extends State<MyHomePage> {
 								),
  
 								leading: IconButton ( 
-                                    icon: Icon (
-                                        Icons.camera_alt,
+                                    icon: const Icon (
+                                        Icons.image_outlined,
                                         size: 28.0,
                                     ),
                                     onPressed : 
@@ -163,7 +159,7 @@ class _MyHomePageState extends State<MyHomePage> {
 							    ),
 
 								trailing: IconButton (
-									icon:  Icon(
+									icon:  const Icon(
 										Icons.send,
 										size: 30.0,
 									),
@@ -191,7 +187,7 @@ class _MyHomePageState extends State<MyHomePage> {
 							),
 						),
 
-						SizedBox( height: 47.0 )
+						const SizedBox( height: 47.0 )
 
 					],
 				),
@@ -199,40 +195,43 @@ class _MyHomePageState extends State<MyHomePage> {
 		);
 	}
 
+    // chat bubble style
+    //  depending on data value (0/1)
+    // 0 = chatbot, 1 = user 
 	Widget chat (String message, int data) {
 		return Container(
-			padding: EdgeInsets.only(left: 10, right: 10),
+			padding: const EdgeInsets.only(left: 10, right: 10),
 			child: Row(
 				mainAxisAlignment: data == 1 ? MainAxisAlignment.end : MainAxisAlignment.start,
 				children: [
 					data == 0 ? Container(
 						height: 40.0,
 						width: 40.0,
-						child: CircleAvatar (
+						child: const CircleAvatar (
 							backgroundImage: AssetImage ("assets/images/Logo-draft-clear-2.png"),
 						)
 					) : Container(),
 
 					Padding (
-						padding: EdgeInsets.all(5.0),
+						padding: const EdgeInsets.all(5.0),
 						child: Bubble (
-							radius: Radius.circular(5.0),
-							color: data==0 ? Color.fromARGB(255, 49, 163, 138) : Color.fromARGB(255, 49, 135, 192),
+							radius: const Radius.circular(5.0),
+							color: data==0 ? const Color.fromARGB(255, 49, 163, 138) : const Color.fromARGB(255, 49, 135, 192),
 							elevation: 0.0,
 
 							child:  Padding (
-								padding: EdgeInsets.all(2.0),
+								padding: const EdgeInsets.all(2.0),
 								child: Row(
 									mainAxisSize: MainAxisSize.min,
 									children: <Widget> [
-										SizedBox( width: 10.0 ),
+										const SizedBox( width: 10.0 ),
 
 										Flexible(
 											child: Container (
-												constraints: BoxConstraints (maxWidth: 200),
+												constraints: const BoxConstraints (maxWidth: 200),
 												child: Text (
 													message,
-													style: TextStyle (
+													style: const TextStyle (
 														color: Colors.white,
 														fontWeight: FontWeight.bold,
 													),

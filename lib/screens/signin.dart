@@ -6,7 +6,7 @@ import 'package:chat_ui/services/authentication.dart';
 class SignIn extends StatefulWidget {
 
 	final	Function toggle;
-	SignIn(this.toggle);
+	SignIn(this.toggle, {Key? key}) : super(key: key);
 	
 	@override
 	_SignInState createState() => _SignInState();
@@ -16,7 +16,7 @@ class _SignInState extends State<SignIn> {
     TextEditingController emailTextEditingController = TextEditingController();
     TextEditingController passwordTextEditingController = TextEditingController();
 
-    AuthMethods authService = new AuthMethods();
+    AuthMethods authService = AuthMethods();
     final formKey = GlobalKey<FormState>();
     bool isLoading = false;
     
@@ -34,7 +34,7 @@ class _SignInState extends State<SignIn> {
                 if (result != null)  {
                     Navigator.pushReplacement (
                         context, MaterialPageRoute(
-                            builder: (context) => ChatRoom()
+                            builder: (context) => const Homescreen()
                         )
                     );
                 } else {
@@ -61,18 +61,18 @@ class _SignInState extends State<SignIn> {
 		    ),
 
 			body: isLoading ? Container(
-				child: Center (
+				child: const Center (
 					child: CircularProgressIndicator()
 				), 
 			) : SingleChildScrollView(
                 child: Container(
                     alignment: Alignment.bottomCenter,
                     child: Container (
-                        padding: EdgeInsets.symmetric(horizontal: 25.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 25.0),
                         child: Column (
                             mainAxisSize: MainAxisSize.min,
                             children: [ 
-                                SizedBox(height: 80.0),
+                                const SizedBox(height: 80.0),
                                 Form(
                                     key: formKey,
                                     child: Column(
@@ -94,7 +94,7 @@ class _SignInState extends State<SignIn> {
                                                 validator: (val) {
                                                     return val!.length > 6
                                                     ? null
-                                                    : "Enter Password 6+ characters";
+                                                    : "Password should contain more than 6 characters.";
                                                 } ,
                                                 controller: passwordTextEditingController,
                                                 decoration: inputFeildDecoration("Password"),
@@ -102,7 +102,7 @@ class _SignInState extends State<SignIn> {
                                         ]
                                     ),
                                 ),
-                                SizedBox(height: 35.0),
+                                const SizedBox(height: 35.0),
                                 GestureDetector(
                                     onTap: () {
                                         signIn();
@@ -111,17 +111,17 @@ class _SignInState extends State<SignIn> {
                                     child: Container(
                                         alignment: Alignment.center,
                                         width: MediaQuery.of(context).size.width,
-                                        padding: EdgeInsets.symmetric(vertical: 20),
+                                        padding: const EdgeInsets.symmetric(vertical: 20),
                                         decoration: BoxDecoration(
-                                            gradient: LinearGradient (
+                                            gradient: const LinearGradient (
                                                 colors:  [
-                                                    const Color.fromARGB(169, 49, 163, 139),
-                                                    const Color.fromARGB(178, 49, 163, 138), 
+                                                    Color.fromARGB(169, 49, 163, 139),
+                                                    Color.fromARGB(178, 49, 163, 138), 
                                                 ]
                                             ),
                                             borderRadius: BorderRadius.circular(25)
                                         ),
-                                        child: Text (
+                                        child: const Text (
                                             "Login",
                                             style: TextStyle (
                                                 fontSize: 18.0,
@@ -131,7 +131,7 @@ class _SignInState extends State<SignIn> {
                                     ),
                                 ),
                                             
-                                SizedBox(height: 20.0),
+                                const SizedBox(height: 20.0),
 
                                 Row(
                                     mainAxisAlignment: MainAxisAlignment.center,

@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_const
+
 import 'package:chat_ui/helper/authenticate.dart';
 import 'package:chat_ui/screens/aboutmelano.dart';
 import 'package:chat_ui/screens/chatbotinterface.dart';
@@ -5,14 +7,14 @@ import 'package:chat_ui/screens/previousscans.dart';
 import 'package:chat_ui/screens/reminderpage.dart';
 import 'package:flutter/material.dart';
 
-class ChatRoom extends StatefulWidget {
+class Homescreen extends StatefulWidget {
+  const Homescreen({Key? key}) : super(key: key);
+
   @override
-  _ChatRoomState createState() => _ChatRoomState();
+  _Homescreen createState() => _Homescreen();
 }
 
-class _ChatRoomState extends State<ChatRoom> {
-
-  // AuthMethods authMethods = new AuthMethods();
+class _Homescreen extends State<Homescreen> {
 
   @override
   Widget build(BuildContext context) {
@@ -28,17 +30,18 @@ class _ChatRoomState extends State<ChatRoom> {
       ),
 
       body: Container(
-          decoration: BoxDecoration (
-              gradient: LinearGradient (
+          decoration: const BoxDecoration (
+              gradient: const LinearGradient (
                   begin: Alignment.bottomLeft,
                   end: Alignment.topCenter,
                   colors: [
-                      Color.fromARGB(0, 35, 247, 208),
+                      const Color.fromARGB(0, 35, 247, 208),
                       Color.fromRGBO(255, 255, 255, 100)
                   ],
               ),
           ),
-          
+
+        // 4 buttons to navigate the app  
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -47,15 +50,15 @@ class _ChatRoomState extends State<ChatRoom> {
               GestureDetector(
                   onTap: () {
                       Navigator.push(context, MaterialPageRoute(
-                      builder: (context) => MyHomePage()
+                      builder: (context) => const Chatbotinterface()
                       ));
                   },
-                  child: Center (
-                      child: Card (
+                  child: const Center (
+                      child: const Card (
                           margin: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
                           child : Padding (
                               padding: EdgeInsets.symmetric(horizontal: 45.0, vertical: 25.0),
-                          child: Text (
+                          child: const Text (
                               "Scan for Melanoma",
                               style : TextStyle (
                                   fontSize: 18.0,
@@ -69,16 +72,16 @@ class _ChatRoomState extends State<ChatRoom> {
             GestureDetector(
                   onTap: () {
                       Navigator.push(context, MaterialPageRoute(
-                      builder: (context) => Previousscans()
+                      builder: (context) => const Previousscans()
                       ));
                   },
-                  child: Center (
+                  child: const Center (
                       child: Card (
                           margin: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
                           child : Padding (
                               padding: EdgeInsets.symmetric(horizontal: 60.0, vertical: 25.0),
-                          child: Text (
-                              "**Previous Scan**",
+                          child: const Text (
+                              "Previous Scan",
                               style : TextStyle (
                                   fontSize: 18.0,
                                   color : Colors.black,
@@ -91,17 +94,17 @@ class _ChatRoomState extends State<ChatRoom> {
             GestureDetector(
                   onTap: () {
                       Navigator.push(context, MaterialPageRoute(
-                      builder: (context) => Reminderpage()
+                      builder: (context) => const Reminderpage()
                       ));
                   },
-                  child: Center (
+                  child: const Center (
                       child: Card (
                           margin: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
                           child : Padding (
                               padding: EdgeInsets.symmetric(horizontal: 78.0, vertical: 25.0),
                           child: Text (
                               "Reminders",
-                              style : TextStyle (
+                              style : const TextStyle (
                                   fontSize: 18.0,
                                   color : Colors.black,
                                   ),
@@ -113,13 +116,13 @@ class _ChatRoomState extends State<ChatRoom> {
               GestureDetector(
                   onTap: () {
                       Navigator.push(context, MaterialPageRoute(
-                      builder: (context) => AboutMelano()
+                      builder: (context) => const AboutMelano()
                       ));
                   },
-                  child: Center (
-                      child: Card (
-                          margin: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
-                          child : Padding (
+                  child: const Center (
+                      child: const Card (
+                          margin: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                          child : const Padding (
                               padding: EdgeInsets.symmetric(horizontal: 70.0, vertical: 25.0),
                           child: Text (
                               "About Melano",
@@ -138,7 +141,7 @@ class _ChatRoomState extends State<ChatRoom> {
           GestureDetector(
               onTap: () {
                   Navigator.pushReplacement(context, MaterialPageRoute(
-        			builder: (context) => Authenticate() 
+        			builder: (context) => const Authenticate() 
         			));
               },
                 child: Container (

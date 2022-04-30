@@ -7,10 +7,12 @@ class AuthMethods {
 
   final FirebaseAuth auth = FirebaseAuth.instance;
 
+// retrive user id from firebase 
   userdata? _userFromFirebaseUser (User user ) {
     return user != null ? userdata(userId : user.uid ) : null   ;
   }
 
+// Sign in method
   Future signInWithEmailAndPassword (String email, String password)  async {
     try {
       UserCredential result = await auth.signInWithEmailAndPassword
@@ -24,6 +26,7 @@ class AuthMethods {
 
   }
 
+// Sign up method
   Future signUpwithEmailAndPassword (String email, String password) async {
     try {
       UserCredential result = await auth.createUserWithEmailAndPassword
@@ -36,15 +39,7 @@ class AuthMethods {
     }
   }
 
-  Future resetPass (String email) async {
-    try {
-      return await auth.sendPasswordResetEmail(email: email);
-
-    } catch (e) {
-      print(e.toString());
-    }
-  }
-
+// Sign out from app
   Future signOut() async {
     try {
       return await auth.signOut();

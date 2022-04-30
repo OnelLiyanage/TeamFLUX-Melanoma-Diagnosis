@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_const
+
 import "package:flutter/material.dart";
 
 Widget appBarMain ( BuildContext context ) {
@@ -11,8 +13,8 @@ Widget appBarMain ( BuildContext context ) {
 InputDecoration inputFeildDecoration (String hintText) {
 	return InputDecoration(
 		hintText: hintText,
-		enabledBorder: UnderlineInputBorder (
-			borderSide: BorderSide(color: Colors.grey),
+		enabledBorder: const UnderlineInputBorder (
+			borderSide: const BorderSide(color: Colors.grey),
 		)
 	);
 }

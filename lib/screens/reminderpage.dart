@@ -1,3 +1,4 @@
+// ignore_for_file: unnecessary_const, deprecated_member_use
 import 'package:flutter/material.dart';
 
 class Reminderpage extends StatefulWidget {
@@ -20,20 +21,20 @@ class _ReminderpageState extends State<Reminderpage> {
     Widget build(BuildContext context) {
         return Scaffold(
             appBar: AppBar(
-				title: Text (
+				title: const Text (
                     "Reminders",
-                    style: TextStyle (
+                    style: const TextStyle (
                         color: Colors.white,
                     ),
                 ),
-                backgroundColor: Color.fromRGBO(49, 163, 139, 0.663),
+                backgroundColor: const Color.fromRGBO(49, 163, 139, 0.663),
                 elevation: 0,
             ),
             floatingActionButton: FloatingActionButton(
                 onPressed: () {
                     showDialog(context: context, builder: (BuildContext context){
                         return AlertDialog(
-                            title: Text("Add to Reminders"),
+                            title: const Text("Add to Reminders"),
                             content: TextField(
                                 onChanged: (String value){
                                     input = value;
@@ -47,13 +48,13 @@ class _ReminderpageState extends State<Reminderpage> {
                                     });
                                     Navigator.of(context).pop();
                                     }, 
-                                    child: Text("Add") 
+                                    child: const Text("Add") 
                                 )
                             ],
                         );
                     } );
                 },
-                child: Icon(
+                child: const Icon(
                     Icons.add, 
                     color: Colors.white
                 ) 
@@ -66,7 +67,7 @@ class _ReminderpageState extends State<Reminderpage> {
                             child: ListTile(
                                 title: Text(reminders[index]),
                                 trailing: IconButton(
-                                    icon: Icon(Icons.delete, color: Colors.red), 
+                                    icon: const Icon(Icons.delete, color: Colors.red), 
                                     onPressed: (){
                                         setState(() {
                                             reminders.removeAt(index);             
