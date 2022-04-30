@@ -12,17 +12,17 @@ class _PreviousscansState extends State<Previousscans> {
     Widget build(BuildContext context) {
         return Scaffold(
             appBar: AppBar(
-		    	title: Text (
+		    	title: const Text (
                     "Previous Scans",
                     style: TextStyle (
                         color: Colors.white,
                     ),
                 ),
-                backgroundColor: Color.fromRGBO(49, 163, 139, 0.663),
+                backgroundColor: const Color.fromRGBO(49, 163, 139, 0.663),
                 elevation: 0,
             ),
             body: Container (
-                child: Center(
+                child: const Center(
                     child: Text("To be announced.")
                 ),
             ),
